@@ -22,8 +22,14 @@ body {
 
 .book {
     display: grid;
-    border: solid 1px blue;
     height: 300px;
     width: 200px;
     place-items: center;
+    background-color: hsl(31, 97%, 82%);
+    box-shadow: 0px 5px 5px 0px;
+}
+
+p {
+    width: 100px;
+    text-align: center;
 }
