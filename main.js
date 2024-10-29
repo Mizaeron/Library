@@ -7,6 +7,10 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
+Book.prototype.toggleReadStatus = function() {
+    this.read = this.read === "read" ? "not read yet" : "read";
+}
+
 const dialog = document.querySelector("dialog");
 const showButton = document.querySelector("dialog + button");
 const confirmBtn = dialog.querySelector("#confirmBtn");
@@ -93,11 +97,21 @@ function displayBooks() {
             removeBook(index);
         });
 
+        const changeStatusButton = document.createElement("button");
+        changeStatusButton.textContent = "Change Read Status";
+        changeStatusButton.classList.add("change-status-button");
+        changeStatusButton.addEventListener("click", () => {
+            book.toggleReadStatus();
+            displayBooks();
+        });
+
+
         bookDiv.appendChild(titleElement);
         bookDiv.appendChild(authorElement);
         bookDiv.appendChild(pagesElement);
         bookDiv.appendChild(readStatusElement);
         bookDiv.appendChild(removeButton);
+        bookDiv.appendChild(changeStatusButton);
 
         cardContainer.appendChild(bookDiv);
     })

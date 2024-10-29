@@ -24,7 +24,7 @@ body {
 
 .book {
     display: grid;
-    height: 300px;
+    height: 400px;
     width: 200px;
     place-items: center;
     background-color: hsl(255, 92%, 86%);
@@ -126,4 +126,15 @@ dialog + button {
 
 .remove-button:hover {
     background-color: #d43c3c;
+}
+
+.change-status-button {
+    background-color: #d946ef;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 0.9em;
 }
