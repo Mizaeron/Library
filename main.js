@@ -7,6 +7,18 @@ function Book(title, author, pages, read) {
     this.read = read;
 }
 
+const dialog = document.querySelector("dialog");
+const showButton = document.querySelector("dialog + button");
+const confirmBtn = dialog.querySelector("#confirmBtn");
+
+showButton.addEventListener("click", () => {
+    dialog.showModal();
+});
+
+confirmBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+})
+
 const theHobbit = new Book('The Hobbit', 'by J.R.R Tolkien', '295 pages', 'not read yet');
 const alchemist = new Book('The Alchemist', 'By Paulo Coelho', '192 pages', 'read' );
 const crimeAndPunishment = new Book('Crime and Punishment', 'by Fjodor M. Dostojewskij', '528 pages', 'not read yet');
@@ -57,5 +69,6 @@ function displayBooks() {
     })
 }
 
-
 displayBooks();
+
+
