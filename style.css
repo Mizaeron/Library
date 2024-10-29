@@ -14,10 +14,11 @@ body {
 
 .card {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     width: 50vw;
     height: 50vh;
     place-content: center;
+    gap: 10px;
 }
 
 .book {
@@ -34,3 +35,79 @@ p {
     text-align: center;
 }
 
+form {
+    background-color: #a8a29e;
+}
+
+dialog {
+    position: fixed;
+    top: 5%; /* Adjust as needed to move dialog down from the top */
+    left: 50%;
+    transform: translate(-50%, 0); /* Center horizontally */
+    padding: 20px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: white;
+    max-width: 90%; /* Make it responsive */
+    width: 800px; /* Set a default width */
+  }
+  
+  dialog::backdrop {
+    background-color: rgba(0, 0, 0, 0.3); 
+  }
+  
+ form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ }
+
+form div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    width: 100%;
+    max-width: 500px;
+    margin-top: 5px;
+}
+
+form label {
+    width: 30%;
+    text-align: left;
+}
+
+form input {
+    width: 75%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+form button {
+    width: 20%;
+    height: 30px;
+    border: none;
+    border-radius: 5px;
+    background-color: #06b6d4;
+    font-weight: bold;
+    letter-spacing: 0.1rem;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+dialog + button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.book strong {
+    color: #333; 
+    font-weight: bold;
+}

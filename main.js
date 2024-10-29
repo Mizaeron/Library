@@ -41,7 +41,7 @@ confirmBtn.addEventListener("click", (event) => {
 })
 
 const theHobbit = new Book('The Hobbit', 'by J.R.R Tolkien', '295 pages', 'not read yet');
-const alchemist = new Book('The Alchemist', 'By Paulo Coelho', '192 pages', 'read' );
+const alchemist = new Book('The Alchemist', 'by Paulo Coelho', '192 pages', 'read' );
 const crimeAndPunishment = new Book('Crime and Punishment', 'by Fjodor M. Dostojewskij', '528 pages', 'not read yet');
 
 const title = document.querySelector(".book .title");
@@ -67,19 +67,19 @@ function displayBooks() {
 
         const titleElement = document.createElement("p");
         titleElement.classList.add("title");
-        titleElement.textContent = book.title;
+        titleElement.innerHTML = `<strong>Title:</strong> ${book.title}`;
 
         const authorElement = document.createElement("p");
         authorElement.classList.add("author");
-        authorElement.textContent = book.author;
+        authorElement.innerHTML = `<strong>Author:</strong> ${book.author}`;
 
         const pagesElement = document.createElement("p");
         pagesElement.classList.add("pages");
-        pagesElement.textContent = book.pages;
+        pagesElement.innerHTML = `<strong>Pages:</strong> ${book.pages}`;
 
         const readStatusElement = document.createElement("p");
         readStatusElement.classList.add("read-status");
-        readStatusElement.textContent = book.read;
+        readStatusElement.innerHTML = `<strong>Read Status:</strong> ${book.read}`;
 
         bookDiv.appendChild(titleElement);
         bookDiv.appendChild(authorElement);
