@@ -10,6 +10,7 @@ function Book(title, author, pages, read) {
 const dialog = document.querySelector("dialog");
 const showButton = document.querySelector("dialog + button");
 const confirmBtn = dialog.querySelector("#confirmBtn");
+const cancelBtn = document.querySelector("#cancel")
 const formTitle = document.querySelector("#title");
 const formAuthor = document.querySelector("#author");
 const formPages = document.querySelector("#pages");
@@ -18,6 +19,10 @@ const formReadStatus = document.querySelector("#read-status");
 showButton.addEventListener("click", () => {
     dialog.showModal();
 });
+
+cancelBtn.addEventListener("click", () => {
+    dialog.close();
+})
 
 confirmBtn.addEventListener("click", (event) => {
     event.preventDefault();
@@ -61,7 +66,7 @@ function displayBooks() {
     const cardContainer = document.querySelector(".card");
     cardContainer.innerHTML = "";
 
-    myLibrary.forEach((book) => {
+    myLibrary.forEach((book, index) => {
         const bookDiv = document.createElement("div");
         bookDiv.classList.add("book");
 
@@ -81,13 +86,26 @@ function displayBooks() {
         readStatusElement.classList.add("read-status");
         readStatusElement.innerHTML = `<strong>Read Status:</strong> ${book.read}`;
 
+        const removeButton = document.createElement("button");
+        removeButton.textContent = "Remove";
+        removeButton.classList.add("remove-button");
+        removeButton.addEventListener("click", () => {
+            removeBook(index);
+        });
+
         bookDiv.appendChild(titleElement);
         bookDiv.appendChild(authorElement);
         bookDiv.appendChild(pagesElement);
         bookDiv.appendChild(readStatusElement);
+        bookDiv.appendChild(removeButton);
 
         cardContainer.appendChild(bookDiv);
     })
+}
+
+function removeBook(index) {
+    myLibrary.splice(index, 1);
+    displayBooks();
 }
 
 displayBooks();
