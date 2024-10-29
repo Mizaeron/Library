@@ -10,6 +10,10 @@ function Book(title, author, pages, read) {
 const dialog = document.querySelector("dialog");
 const showButton = document.querySelector("dialog + button");
 const confirmBtn = dialog.querySelector("#confirmBtn");
+const formTitle = document.querySelector("#title");
+const formAuthor = document.querySelector("#author");
+const formPages = document.querySelector("#pages");
+const formReadStatus = document.querySelector("#read-status");
 
 showButton.addEventListener("click", () => {
     dialog.showModal();
@@ -17,6 +21,23 @@ showButton.addEventListener("click", () => {
 
 confirmBtn.addEventListener("click", (event) => {
     event.preventDefault();
+
+    const title = formTitle.value;
+    const author = formAuthor.value;
+    const pages = formPages.value;
+    const readStatus = formReadStatus.value;
+
+    const newBook = new Book(title, author, pages, readStatus);
+
+    myLibrary.push(newBook);
+
+    formTitle.value = "";
+    formAuthor.value = "";
+    formPages.value = "";
+    formReadStatus.value = "";
+
+    dialog.close();
+    displayBooks();
 })
 
 const theHobbit = new Book('The Hobbit', 'by J.R.R Tolkien', '295 pages', 'not read yet');
